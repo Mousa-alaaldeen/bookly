@@ -12,6 +12,10 @@ class SplaShViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetData.logo),
+        const SizedBox(
+          height: 4,
+        ),
+        const Center(child: Text('Read Free Books')),
       ],
     );
   }
