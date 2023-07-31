@@ -248,6 +248,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  typewritertext:
+    dependency: "direct main"
+    description:
+      name: typewritertext
+      sha256: "2b69baf6e007668de66364f48615ab94c21dc5d5a6c0414b41c774a32a594e32"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.8.0"
   vector_math:
     dependency: transitive
     description:
