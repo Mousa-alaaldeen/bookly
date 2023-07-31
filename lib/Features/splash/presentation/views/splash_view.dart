@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bookly/Features/home/presentaion/views/widget/home.dart';
+import 'package:bookly/Features/home/presentaion/views/home.dart';
 import 'package:bookly/Features/splash/presentation/views/widget/cubit/cubit.dart';
 import 'package:bookly/Features/splash/presentation/views/widget/cubit/states.dart';
 import 'package:bookly/Features/splash/presentation/views/widget/splash_view_body.dart';
@@ -20,7 +20,7 @@ class SplaShView extends StatelessWidget {
      }, builder: (context, state) {
       Future.delayed(Duration(seconds: 4), () {
           // Add any code you want to execute after the delay here
-          navigateTo(context,Home());
+          navigateTo(context,HomeView());
         });
       return Scaffold(
         body: SplaShViewBody(),
