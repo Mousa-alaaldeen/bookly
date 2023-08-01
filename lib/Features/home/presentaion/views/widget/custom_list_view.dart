@@ -15,7 +15,9 @@ class CustomListViewItm extends StatelessWidget {
           color: Colors.amber,
           image: const DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(AssetData.testImage),
+            image: AssetImage(
+              AssetData.testImage,
+            ),
           ),
         ),
       ),
