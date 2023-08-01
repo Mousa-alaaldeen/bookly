@@ -15,16 +15,15 @@ class SplaShView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SplashCubit, SplaShViewBodyStates>(
-        listener: (context, state) {
-     
-     }, builder: (context, state) {
-      Future.delayed(Duration(seconds: 4), () {
-          // Add any code you want to execute after the delay here
-          navigateTo(context,HomeView());
+        listener: (context, state) {},
+        builder: (context, state) {
+          Future.delayed(Duration(seconds: 4), () {
+            // Add any code you want to execute after the delay here
+            navigateTo(context, HomeView());
+          });
+          return Scaffold(
+            body: SplaShViewBody(),
+          );
         });
-      return Scaffold(
-        body: SplaShViewBody(),
-      );
-    });
   }
 }
