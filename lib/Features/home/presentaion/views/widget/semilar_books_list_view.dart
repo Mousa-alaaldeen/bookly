@@ -1,18 +1,19 @@
-import 'package:bookly/Features/home/presentaion/views/widget/custom_book_image.dart';
 import 'package:flutter/cupertino.dart';
 
-class FeatureBoxsListView extends StatelessWidget {
-  const FeatureBoxsListView({super.key});
+import 'custom_book_image.dart';
+
+class SemilarBooksListView extends StatelessWidget {
+  const SemilarBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
+      height: MediaQuery.of(context).size.height * .15,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const CustomBookImage(),
         separatorBuilder: (BuildContext context, int index) => const SizedBox(
-          width: 8,
+          width: 5,
         ),
         itemCount: 10,
       ),

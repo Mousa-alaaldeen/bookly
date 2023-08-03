@@ -1,10 +1,13 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:bookly/Features/home/presentaion/views/widget/book_rating.dart';
 import 'package:bookly/Features/home/presentaion/views/widget/cusstem_book_details_app_bar.dart';
 import 'package:bookly/Features/home/presentaion/views/widget/custom_book_image.dart';
+import 'package:bookly/Features/home/presentaion/views/widget/semilar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import 'booksAction.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -45,6 +48,27 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 18,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
+          const SizedBox(
+            height: 37,
+          ),
+          const BookAction(),
+          const SizedBox(
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SemilarBooksListView(),
         ],
       ),
     );
