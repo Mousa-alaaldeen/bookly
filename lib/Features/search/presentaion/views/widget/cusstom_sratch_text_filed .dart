@@ -6,21 +6,24 @@ class CusstomSratchTextFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-          enabledBorder: outlineInputBorder(),
-          focusedBorder: outlineInputBorder(),
-          hintText: 'Search',
-          suffixIcon: IconButton(
-            onPressed: () {},
-            icon: const Opacity(
-              opacity: 0.8,
-              child: Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 20,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: TextField(
+        decoration: InputDecoration(
+            enabledBorder: outlineInputBorder(),
+            focusedBorder: outlineInputBorder(),
+            hintText: 'Search',
+            suffixIcon: IconButton(
+              onPressed: () {},
+              icon: const Opacity(
+                opacity: 0.8,
+                child: Icon(
+                  FontAwesomeIcons.magnifyingGlass,
+                  size: 20,
+                ),
               ),
-            ),
-          )),
+            )),
+      ),
     );
   }
 }
