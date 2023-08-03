@@ -15,62 +15,79 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          const CustomDetailsAppBar(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: w * .2),
-            child: const CustomBookImage(),
-          ),
-          const SizedBox(
-            height: 42,
-          ),
-          const Text(
-            'The Jungle Book',
-            style: Styles.textStyle30,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          Opacity(
-            opacity: 0.7,
-            child: Text(
-              'Rudyard Kipling',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: Styles.textStyle14.copyWith(
-                fontWeight: FontWeight.w500,
-                fontStyle: FontStyle.italic,
-              ),
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const CustomDetailsAppBar(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: w * .2),
+                  child: const CustomBookImage(),
+                ),
+                const SizedBox(
+                  height: 42,
+                ),
+                const Text(
+                  'The Jungle Book',
+                  style: Styles.textStyle30,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Opacity(
+                  opacity: 0.7,
+                  child: Text(
+                    'Rudyard Kipling',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle14.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                const BookRating(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                const SizedBox(
+                  height: 37,
+                ),
+                const BookAction(),
+                const Expanded(
+                  child: SizedBox(
+                    height: 50,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'You can also like',
+                    style: Styles.textStyle14
+                        .copyWith(fontWeight: FontWeight.w600),
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                const SemilarBooksListView(),
+                const SizedBox(
+                  height: 20,
+                )
+              ],
             ),
           ),
-          const SizedBox(
-            height: 18,
-          ),
-          const BookRating(
-            mainAxisAlignment: MainAxisAlignment.center,
-          ),
-          const SizedBox(
-            height: 37,
-          ),
-          const BookAction(),
-          const SizedBox(
-            height: 50,
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'You can also like',
-              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
-            ),
-          ),
-          const SemilarBooksListView(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
