@@ -5,7 +5,6 @@ import 'package:bookly/Features/home/presentaion/views/widget/custem_book_detail
 import 'package:bookly/Features/home/presentaion/views/widget/semilar_books_screen.dart';
 import 'package:flutter/material.dart';
 
-
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 

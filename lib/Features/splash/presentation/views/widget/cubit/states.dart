@@ -1,3 +1,3 @@
 abstract class SplaShViewBodyStates {}
 
-class InitialState extends SplaShViewBodyStates  {}
+class InitialState extends SplaShViewBodyStates {}

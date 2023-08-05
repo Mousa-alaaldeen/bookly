@@ -12,7 +12,6 @@ class FaerchNewseBooks extends UseCase<List<BookEntity>, NoParam> {
 
   @override
   Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) {
-
     return homeRepo.featchNewesBooks();
   }
 }

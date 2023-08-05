@@ -1,4 +1,3 @@
-
 import 'package:bookly/Features/home/presentaion/views/widget/book_rating.dart';
 import 'package:flutter/cupertino.dart';
 

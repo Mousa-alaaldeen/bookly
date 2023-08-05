@@ -1,5 +1,5 @@
 String? token = '';
 String? name = '';
 String? email = '';
-String? userId ='';
+String? userId = '';
 String? image = '';

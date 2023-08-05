@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, avoid_print
 
-
-
 import 'package:flutter/material.dart';
 
 Widget deffaultButton({
@@ -17,7 +15,6 @@ Widget deffaultButton({
     Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-    
       ),
       width: width,
       child: MaterialButton(
@@ -25,8 +22,6 @@ Widget deffaultButton({
         onPressed: function,
         child: Text(
           isUpperCase ? text!.toUpperCase() : text!,
-          
-        
         ),
       ),
     );
@@ -100,17 +95,14 @@ Widget deffaultTextButton({
       onPressed: onPressed,
       child: Text(
         text.toUpperCase(),
-        
-      
-        
       ),
     );
 void navigateTo(context, widget) => Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => widget,
-
-    ),);
+      context,
+      MaterialPageRoute(
+        builder: (context) => widget,
+      ),
+    );
 
 void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
       context,
@@ -125,7 +117,7 @@ Widget myDivider() => Container(
       width: double.infinity,
       color: Colors.grey,
     );
-    
+
 // void showToast({
 //   required String text,
 //   required ToastState state,

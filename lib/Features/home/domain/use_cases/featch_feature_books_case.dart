@@ -8,11 +8,9 @@ import '../repo/book_repo.dart';
 class FeatchFeatureBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
   final HomeRepo homeRepo;
   FeatchFeatureBooksUseCase(this.homeRepo);
-  
+
   @override
-  Future<Either< Failure, List<BookEntity>>> call([NoParam? param]) {
+  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) {
     return homeRepo.featchFeatureBooks();
   }
 }
-
-
