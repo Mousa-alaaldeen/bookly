@@ -1,6 +1,7 @@
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<BookEntity> featchFeatureBooks();
-  Future<BookEntity> featchNewesBooks();
+  Future<Either<Fail, List<BookEntity>>> featchFeatureBooks();
+  Future<Either<Fail, List<BookEntity>>> featchNewesBooks();
 }
