@@ -5,7 +5,6 @@ import 'reading_modes.dart';
 
 class VolumeInfo {
   String? title;
-  String? subtitle;
   List<String>? authors;
   String? publisher;
   String? publishedDate;
@@ -15,6 +14,8 @@ class VolumeInfo {
   num? pageCount;
   String? printType;
   List<String>? categories;
+  num? averageRating;
+  num? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -27,7 +28,6 @@ class VolumeInfo {
 
   VolumeInfo({
     this.title,
-    this.subtitle,
     this.authors,
     this.publisher,
     this.publishedDate,
@@ -37,6 +37,8 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -50,7 +52,6 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title']?.toString(),
-        subtitle: json['subtitle']?.toString(),
         authors: List<String>.from(json['authors'] ?? []),
         publisher: json['publisher']?.toString(),
         publishedDate: json['publishedDate']?.toString(),
@@ -66,6 +67,8 @@ class VolumeInfo {
         pageCount: num.tryParse(json['pageCount'].toString()),
         printType: json['printType']?.toString(),
         categories: List<String>.from(json['categories'] ?? []),
+        averageRating: num.tryParse(json['averageRating'].toString()),
+        ratingsCount: num.tryParse(json['ratingsCount'].toString()),
         maturityRating: json['maturityRating']?.toString(),
         allowAnonLogging: json['allowAnonLogging']?.toString().contains("true"),
         contentVersion: json['contentVersion']?.toString(),
@@ -85,7 +88,6 @@ class VolumeInfo {
 
   Map<String, dynamic> toJson() => {
         if (title != null) 'title': title,
-        if (subtitle != null) 'subtitle': subtitle,
         if (authors != null) 'authors': authors,
         if (publisher != null) 'publisher': publisher,
         if (publishedDate != null) 'publishedDate': publishedDate,
@@ -97,6 +99,8 @@ class VolumeInfo {
         if (pageCount != null) 'pageCount': pageCount,
         if (printType != null) 'printType': printType,
         if (categories != null) 'categories': categories,
+        if (averageRating != null) 'averageRating': averageRating,
+        if (ratingsCount != null) 'ratingsCount': ratingsCount,
         if (maturityRating != null) 'maturityRating': maturityRating,
         if (allowAnonLogging != null) 'allowAnonLogging': allowAnonLogging,
         if (contentVersion != null) 'contentVersion': contentVersion,
