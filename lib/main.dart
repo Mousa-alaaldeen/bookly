@@ -6,15 +6,17 @@ import 'package:cubit_form/cubit_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'Features/splash/presentation/views/splash_view.dart';
 import 'Features/splash/presentation/views/widget/cubit/cubit.dart';
 
 void main() async {
-  runApp(const BooklyApp());
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kNewesBox);
+  runApp(const BooklyApp());
 }
 
 class BooklyApp extends StatelessWidget {
