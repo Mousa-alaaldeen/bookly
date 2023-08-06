@@ -20,7 +20,7 @@ class DioHelper {
     // ));
     dio = Dio(
       BaseOptions(
-        baseUrl: "http://www.ma511.somee.com/api/",
+        baseUrl: "https://www.googleapis.com/books/v1/",
         receiveDataWhenStatusError: true,
       ),
     );
@@ -31,7 +31,7 @@ class DioHelper {
     Map<String, dynamic>? qury,
     String lang = 'en',
     String? token,
-    Map<String, String>? data,
+   
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
