@@ -1,6 +1,9 @@
 // ignore_for_file: unused_local_variable
 
+
+import '../../../../constants.dart';
 import '../../../../core/utils/Api_service.dart';
+import '../../../../core/utils/function/save_boox.dart';
 import '../../domain/entities/book_entity.dart';
 import '../models/book_model/book_model/book_model.dart';
 
@@ -16,6 +19,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         url: 'volumes?Filtering=free-ebooks&q=computer science');
 
     List<BookEntity> books = getBooksList(data);
+    saveBooxData(books, kFeaturedBox);
     return books;
   }
 
@@ -29,7 +33,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<List<BookEntity>> featchNewesBooks() async {
-    // TODO: implement featchNewesBooks
+   
     dynamic data = DioHelper.getData(
         url:
             'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
