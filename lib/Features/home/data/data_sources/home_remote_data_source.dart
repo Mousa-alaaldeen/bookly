@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import '../../../../core/utils/Api_service.dart';
 import '../../domain/entities/book_entity.dart';
 import '../models/book_model/book_model/book_model.dart';
@@ -26,8 +28,22 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> featchNewesBooks() {
+  Future<List<BookEntity>> featchNewesBooks() async {
     // TODO: implement featchNewesBooks
-    throw UnimplementedError();
+    dynamic data = DioHelper.getData(
+        url:
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
+    List<BookEntity> books = getNewesBooksList(data);
+
+    return books;
+  }
+
+  List<BookEntity> getNewesBooksList(Map<String, dynamic> data) {
+    List<BookEntity> books = [];
+
+    for (var bookMap in data['items']) {
+      books.add(BookModel.fromJson(data));
+    }
+    return books;
   }
 }
