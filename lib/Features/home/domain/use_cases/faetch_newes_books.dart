@@ -5,10 +5,10 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/errors/failere.dart';
 import '../entities/book_entity.dart';
 
-class FaerchNewseBooks extends UseCase<List<BookEntity>, NoParam> {
+class FaerchNewseBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
   final HomeRepo homeRepo;
 
-  FaerchNewseBooks(this.homeRepo);
+  FaerchNewseBooksUseCase(this.homeRepo);
 
   @override
   Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) {
