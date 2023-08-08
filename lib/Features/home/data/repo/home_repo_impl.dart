@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:bookly/Features/home/data/data_sources/home_local_data_source.dart';
 import 'package:bookly/Features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:bookly/Features/home/domain/entities/book_entity.dart';
@@ -25,9 +27,8 @@ class HomeRepoImpl extends HomeRepo {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
       }
-      
-        return left( ServerFailure(e.toString()));
-      
+
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -44,9 +45,8 @@ class HomeRepoImpl extends HomeRepo {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
       }
-      
-        return left( ServerFailure(e.toString()));
-      
+
+      return left(ServerFailure(e.toString()));
     }
   }
 }

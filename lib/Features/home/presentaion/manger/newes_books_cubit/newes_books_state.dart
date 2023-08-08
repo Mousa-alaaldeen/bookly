@@ -4,7 +4,6 @@ abstract class NewesBooksState {}
 
 class NewesBooksInitial extends NewesBooksState {}
 
-
 class NewesBooksLoding extends NewesBooksState {}
 
 class NewesBooksSuccess extends NewesBooksState {

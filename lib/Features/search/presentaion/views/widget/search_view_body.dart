@@ -39,7 +39,9 @@ class SearchResultItm extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
         shrinkWrap: true,
-        itemBuilder: (context, index) => const BestSellorListView(),
+        itemBuilder: (context, index) => const BestSellorListView(
+              image: '',
+            ),
         separatorBuilder: (context, index) => const SizedBox(
               height: 20,
             ),

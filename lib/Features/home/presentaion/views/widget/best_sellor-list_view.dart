@@ -1,15 +1,17 @@
+// ignore_for_file: file_names
+
 import 'package:bookly/Features/home/presentaion/views/book_details_view.dart';
 import 'package:bookly/core/utils/components/components.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class BestSellorListView extends StatelessWidget {
-  const BestSellorListView({super.key});
-
+  const BestSellorListView({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,20 +25,10 @@ class BestSellorListView extends StatelessWidget {
           child: Row(
             children: [
               AspectRatio(
-                aspectRatio: 2.7 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.amber,
-                    image: const DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
-                        AssetData.testImage,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+                  aspectRatio: 2.7 / 4,
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                  )),
               const SizedBox(
                 width: 30,
               ),

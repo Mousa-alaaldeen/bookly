@@ -1,3 +1,4 @@
+
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
@@ -11,7 +12,7 @@ class VolumeInfo {
   String? description;
   List<IndustryIdentifier>? industryIdentifiers;
   ReadingModes? readingModes;
-  num? pageCount;
+  int? pageCount;
   String? printType;
   List<String>? categories;
   num? averageRating;
@@ -51,66 +52,66 @@ class VolumeInfo {
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-        title: json['title']?.toString(),
-        authors: List<String>.from(json['authors'] ?? []),
-        publisher: json['publisher']?.toString(),
-        publishedDate: json['publishedDate']?.toString(),
-        description: json['description']?.toString(),
-        industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
-            ?.map((e) =>
-                IndustryIdentifier.fromJson(Map<String, dynamic>.from(e)))
-            .toList(),
+        title: json['title'] as String?,
+       authors: (json['authors'] as List<dynamic>?)
+  ?.map((author) => author.toString())
+  .toList(),
+
+        publisher: json['publisher'] as String?,
+        publishedDate: json['publishedDate'] as String?,
+        description: json['description'] as String?,
+      industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
+  ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
+  .toList(),
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
-                Map<String, dynamic>.from(json['readingModes'])),
-        pageCount: num.tryParse(json['pageCount'].toString()),
-        printType: json['printType']?.toString(),
-        categories: List<String>.from(json['categories'] ?? []),
-        averageRating: num.tryParse(json['averageRating'].toString()),
-        ratingsCount: num.tryParse(json['ratingsCount'].toString()),
-        maturityRating: json['maturityRating']?.toString(),
-        allowAnonLogging: json['allowAnonLogging']?.toString().contains("true"),
-        contentVersion: json['contentVersion']?.toString(),
+                json['readingModes'] as Map<String, dynamic>),
+        pageCount: json['pageCount'] as int?,
+        printType: json['printType'] as String?,
+        categories: (json['categories'] as List?)
+            ?.map((category) => category.toString())
+            .toList(),
+        averageRating: json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] as num?,
+        maturityRating: json['maturityRating'] as String?,
+        allowAnonLogging: json['allowAnonLogging'] as bool?,
+        contentVersion: json['contentVersion'] as String?,
         panelizationSummary: json['panelizationSummary'] == null
             ? null
             : PanelizationSummary.fromJson(
-                Map<String, dynamic>.from(json['panelizationSummary'])),
+                json['panelizationSummary'] as Map<String, dynamic>),
         imageLinks: json['imageLinks'] == null
             ? null
-            : ImageLinks.fromJson(
-                Map<String, dynamic>.from(json['imageLinks'])),
-        language: json['language']?.toString(),
-        previewLink: json['previewLink']?.toString(),
-        infoLink: json['infoLink']?.toString(),
-        canonicalVolumeLink: json['canonicalVolumeLink']?.toString(),
+            : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        language: json['language'] as String?,
+        previewLink: json['previewLink'] as String?,
+        infoLink: json['infoLink'] as String?,
+        canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
-        if (title != null) 'title': title,
-        if (authors != null) 'authors': authors,
-        if (publisher != null) 'publisher': publisher,
-        if (publishedDate != null) 'publishedDate': publishedDate,
-        if (description != null) 'description': description,
-        if (industryIdentifiers != null)
-          'industryIdentifiers':
-              industryIdentifiers?.map((e) => e.toJson()).toList(),
-        if (readingModes != null) 'readingModes': readingModes?.toJson(),
-        if (pageCount != null) 'pageCount': pageCount,
-        if (printType != null) 'printType': printType,
-        if (categories != null) 'categories': categories,
-        if (averageRating != null) 'averageRating': averageRating,
-        if (ratingsCount != null) 'ratingsCount': ratingsCount,
-        if (maturityRating != null) 'maturityRating': maturityRating,
-        if (allowAnonLogging != null) 'allowAnonLogging': allowAnonLogging,
-        if (contentVersion != null) 'contentVersion': contentVersion,
-        if (panelizationSummary != null)
-          'panelizationSummary': panelizationSummary?.toJson(),
-        if (imageLinks != null) 'imageLinks': imageLinks?.toJson(),
-        if (language != null) 'language': language,
-        if (previewLink != null) 'previewLink': previewLink,
-        if (infoLink != null) 'infoLink': infoLink,
-        if (canonicalVolumeLink != null)
-          'canonicalVolumeLink': canonicalVolumeLink,
+        'title': title,
+        'authors': authors,
+        'publisher': publisher,
+        'publishedDate': publishedDate,
+        'description': description,
+        'industryIdentifiers':
+            industryIdentifiers?.map((e) => e.toJson()).toList(),
+        'readingModes': readingModes?.toJson(),
+        'pageCount': pageCount,
+        'printType': printType,
+        'categories': categories,
+        'averageRating': averageRating,
+        'ratingsCount': ratingsCount,
+        'maturityRating': maturityRating,
+        'allowAnonLogging': allowAnonLogging,
+        'contentVersion': contentVersion,
+        'panelizationSummary': panelizationSummary?.toJson(),
+        'imageLinks': imageLinks?.toJson(),
+        'language': language,
+        'previewLink': previewLink,
+        'infoLink': infoLink,
+        'canonicalVolumeLink': canonicalVolumeLink,
       };
 }

@@ -4,10 +4,10 @@ class Pdf {
   Pdf({this.isAvailable});
 
   factory Pdf.fromJson(Map<String, dynamic> json) => Pdf(
-        isAvailable: json['isAvailable']?.toString().contains("true"),
+        isAvailable: json['isAvailable'] as bool?,
       );
 
   Map<String, dynamic> toJson() => {
-        if (isAvailable != null) 'isAvailable': isAvailable,
+        'isAvailable': isAvailable,
       };
 }

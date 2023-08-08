@@ -6,13 +6,13 @@ class IndustryIdentifier {
 
   factory IndustryIdentifier.fromJson(Map<String, dynamic> json) {
     return IndustryIdentifier(
-      type: json['type']?.toString(),
-      identifier: json['identifier']?.toString(),
+      type: json['type'] as String?,
+      identifier: json['identifier'] as String?,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        if (type != null) 'type': type,
-        if (identifier != null) 'identifier': identifier,
+        'type': type,
+        'identifier': identifier,
       };
 }

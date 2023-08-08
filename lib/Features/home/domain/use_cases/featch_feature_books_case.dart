@@ -1,8 +1,8 @@
-import 'package:bookly/Features/home/domain/entities/book_entity.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/failere.dart';
 import '../../../../core/use_cases/use_cases.dart';
+import '../entities/book_entity.dart';
 import '../repo/book_repo.dart';
 
 class FeatchFeatureBooksUseCase extends UseCase<List<BookEntity>, NoParam> {

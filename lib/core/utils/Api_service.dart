@@ -1,23 +1,27 @@
 // ignore: depend_on_referenced_packages
+// ignore_for_file: file_names
+
 import 'package:dio/dio.dart';
 
 class DioHelper {
   static late Dio dio;
+
+  DioHelper(Dio dio);
   static init() {
-    // BaseOptions baseOptions = BaseOptions(
-    //   baseUrl: "http://www.ma511.somee.com/api/",
-    //   receiveDataWhenStatusError: true,
-    // );
-    // dio = Dio(baseOptions);
-    // dio.interceptors.add(LogInterceptor(
-    //   requestBody: true,
-    //   responseBody: true,
-    //   request: true,
-    //   requestHeader: true,
-    //   responseHeader: true,
-    //   error: true,
-    //   logPrint: print,
-    // ));
+    BaseOptions baseOptions = BaseOptions(
+      baseUrl: "https://www.googleapis.com/books/v1/",
+      receiveDataWhenStatusError: true,
+    );
+    dio = Dio(baseOptions);
+    dio.interceptors.add(LogInterceptor(
+      requestBody: true,
+      responseBody: true,
+      request: true,
+      requestHeader: true,
+      responseHeader: true,
+      error: true,
+      logPrint: print,
+    ));
     dio = Dio(
       BaseOptions(
         baseUrl: "https://www.googleapis.com/books/v1/",
