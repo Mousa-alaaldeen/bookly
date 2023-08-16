@@ -366,14 +366,14 @@
 //   }
 // }
 
-// class BookDataModel {
+// class BookEntity {
 //   final List<BookEntity1> list;
-//   BookDataModel({
+//   BookEntity({
 //     required this.list,
 //   });
-//   factory BookDataModel.formJson(List<dynamic> parsedJson) {
+//   factory BookEntity.formJson(List<dynamic> parsedJson) {
 //     List<BookEntity1> list = <BookEntity1>[];
 //     list = parsedJson.map((i) => BookEntity1.fromJson(i)).toList();
-//     return BookDataModel(list: list);
+//     return BookEntity(list: list);
 //   }
 // }

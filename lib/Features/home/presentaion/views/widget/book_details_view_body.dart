@@ -26,7 +26,7 @@ class BookDetailsViewBody extends StatelessWidget {
                     height: 50,
                   ),
                 ),
-                SemilarBooksScreen(),
+                SimilarBooksSection(),
               ],
             ),
           ),

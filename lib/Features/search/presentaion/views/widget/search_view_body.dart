@@ -1,50 +1,57 @@
+// ignore_for_file: unnecessary_import
+
+import 'package:bookly/Features/home/presentaion/views/widget/best_sellor-list_view_itm.dart';
+import 'package:bookly/Features/search/presentaion/views/widget/cusstom_sratch_text_filed%20.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../home/presentaion/views/widget/best_sellor-list_view.dart';
-import 'cusstom_sratch_text_filed .dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CusstomSratchTextFiled(),
-        SizedBox(
-          height: 16,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 30.0),
-          child: Text(
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomSearchTextField(),
+          SizedBox(
+            height: 16,
+          ),
+          Text(
             'Search Result',
             style: Styles.textStyle18,
           ),
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        Expanded(child: SearchResultItm()),
-      ],
+          SizedBox(
+            height: 16,
+          ),
+          Expanded(
+            child: SearchResultListView(),
+          ),
+        ],
+      ),
     );
   }
 }
 
-class SearchResultItm extends StatelessWidget {
-  const SearchResultItm({super.key});
+class SearchResultListView extends StatelessWidget {
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (context, index) => const BestSellorListView(
-              image: '',
-            ),
-        separatorBuilder: (context, index) => const SizedBox(
-              height: 20,
-            ),
-        itemCount: 10);
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return const Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: BestSellorListViewItm(image: '', rowling: '', pre: '', title: '',),
+        );
+      },
+    );
   }
 }

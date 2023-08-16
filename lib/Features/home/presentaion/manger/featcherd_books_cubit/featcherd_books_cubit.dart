@@ -8,10 +8,20 @@ class FeatureBooksCubit extends Cubit<FeatureBooksState> {
       : super(FeatureBooksInitial());
 
   final FeatchFeatureBooksUseCase featchFeatureBooksUseCase;
-  Future<void> faerchFeatureBook() async {
-    emit(FeatureBooksLoding());
-    var result = await featchFeatureBooksUseCase.call();
-    result.fold((failure) => {emit(FeatureBooksError(failure.massage))},
-        (books) => {emit(FeatureBooksSuccess(books))});
+  Future<void> faerchFeatureBook({int pageNumber = 0}) async {
+    if (pageNumber == 0) {
+      emit(FeatureBooksLoding());
+    } else {
+      emit(FeatureBooksPaginationLoding());
+    }
+    var result = await featchFeatureBooksUseCase.call(pageNumber);
+    result.fold(
+      (failure) => {
+        emit(FeatureBooksError(failure.massage)),
+      },
+      (books) => {
+        emit(FeatureBooksSuccess(books)),
+      },
+    );
   }
 }

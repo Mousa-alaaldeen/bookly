@@ -2,11 +2,12 @@
 
 import 'package:bookly/Features/home/data/data_sources/home_local_data_source.dart';
 import 'package:bookly/Features/home/data/data_sources/home_remote_data_source.dart';
-import 'package:bookly/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly/Features/home/domain/repo/book_repo.dart';
 import 'package:bookly/core/errors/failere.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
+import '../../domain/entities/book_entity.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
@@ -15,13 +16,16 @@ class HomeRepoImpl extends HomeRepo {
   HomeRepoImpl(
       {required this.homeRemoteDataSource, required this.homeLocalDataSource});
   @override
-  Future<Either<Failure, List<BookEntity>>> featchFeatureBooks() async {
+  Future<Either<Failure, List<BookEntity>>> featchFeatureBooks(
+      {int pageNumber = 0}) async {
     try {
-      var books = homeLocalDataSource.featchFeatureBooks();
+      var books =
+          homeLocalDataSource.featchFeatureBooks(pageNumber: pageNumber);
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = await homeRemoteDataSource.featchFeatureBooks();
+      books =
+          await homeRemoteDataSource.featchFeatureBooks(pageNumber: pageNumber);
       return right(books);
     } catch (e) {
       if (e is DioError) {
@@ -35,11 +39,11 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> featchNewesBooks() async {
     try {
-      var books = homeLocalDataSource.featchFeatureBooks();
+      var books = homeLocalDataSource.featchNewesBooks();
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = await homeRemoteDataSource.featchFeatureBooks();
+      books = await homeRemoteDataSource.featchNewesBooks();
       return right(books);
     } catch (e) {
       if (e is DioError) {

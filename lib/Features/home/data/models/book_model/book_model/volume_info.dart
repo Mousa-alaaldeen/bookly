@@ -1,4 +1,3 @@
-
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
@@ -53,23 +52,22 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-       authors: (json['authors'] as List<dynamic>?)
-  ?.map((author) => author.toString())
-  .toList(),
-
+        authors: (json['authors'] as List<dynamic>?)
+            ?.map((author) => author.toString())
+            .toList(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
-      industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
-  ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
-  .toList(),
+        industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
+            ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
+            .toList(),
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
-        categories: (json['categories'] as List?)
+        categories: (json['categories'] as List<dynamic>?)
             ?.map((category) => category.toString())
             .toList(),
         averageRating: json['averageRating'] as num?,

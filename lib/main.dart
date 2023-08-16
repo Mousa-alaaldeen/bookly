@@ -21,7 +21,7 @@ import 'core/utils/function/simple_bloc_observer.dart';
 void main() async {
   await Hive.initFlutter();
   setupServiceLocator();
-  DioHelper.init();
+  ApiService;
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewesBox);

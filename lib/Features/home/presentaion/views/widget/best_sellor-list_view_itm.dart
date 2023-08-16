@@ -9,9 +9,13 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
-class BestSellorListView extends StatelessWidget {
-  const BestSellorListView({super.key, required this.image});
+class BestSellorListViewItm extends StatelessWidget {
+  const BestSellorListViewItm(
+      {super.key, required this.image, required this.title, required this.rowling, required this.pre});
   final String image;
+  final String title;
+final String rowling;
+final String pre;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +43,7 @@ class BestSellorListView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
-                        'Harry Potter and the Goblet of Fire ',
+                        title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20.copyWith(
@@ -50,21 +54,21 @@ class BestSellorListView extends StatelessWidget {
                     const SizedBox(
                       height: 3,
                     ),
-                    const Text(
-                      'J.K .Rowling',
+                     Text(
+                      rowling,
                       style: Styles.textStyle14,
                     ),
                     const SizedBox(
                       height: 3,
                     ),
-                    const Row(
+                    Row(
                       children: [
                         Text(
-                          '19.99\$ ',
+                      pre    ,
                           style: Styles.textStyle20,
                         ),
-                        Spacer(),
-                        BookRating(),
+                        const Spacer(),
+                        const BookRating(),
                       ],
                     ),
                   ],
