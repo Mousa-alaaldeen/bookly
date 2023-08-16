@@ -5,28 +5,47 @@ import 'package:bookly/Features/home/presentaion/views/widget/custem_book_detail
 import 'package:bookly/Features/home/presentaion/views/widget/semilar_books_screen.dart';
 import 'package:flutter/material.dart';
 
-class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+import '../../../domain/entities/book_entity.dart';
 
+class BookDetailsViewBody extends StatelessWidget {
+  const BookDetailsViewBody(
+      {super.key,
+      required this.image,
+      required this.authorName,
+      required this.pre,
+      required this.title,
+      required this.book});
+  final String image;
+  final String authorName;
+  final String pre;
+  final String title;
+  final List<BookEntity> book;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                CustomDetailsAppBar(),
-                BookDetailsScreen(),
-                Expanded(
+                const CustomDetailsAppBar(),
+                BookDetailsScreen(
+                  image: image,
+                  authorName: authorName,
+                  pre: pre,
+                  title: title,
+                ),
+                const Expanded(
                   child: SizedBox(
                     height: 50,
                   ),
                 ),
-                SimilarBooksSection(),
+                SimilarBooksSection(
+                  book: book,
+                ),
               ],
             ),
           ),

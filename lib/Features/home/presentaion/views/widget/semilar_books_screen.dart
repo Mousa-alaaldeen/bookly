@@ -3,10 +3,11 @@ import 'package:bookly/Features/home/presentaion/views/widget/semilar_books_list
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../domain/entities/book_entity.dart';
 
 class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key});
-
+  const SimilarBooksSection({super.key, required this.book});
+final List<BookEntity>book;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +22,7 @@ class SimilarBooksSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const SimilarBooksListview(),
+       SimilarBooksListview(books: book,),
       ],
     );
   }

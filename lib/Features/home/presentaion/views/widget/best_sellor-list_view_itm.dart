@@ -7,22 +7,35 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../domain/entities/book_entity.dart';
 import 'book_rating.dart';
 
 class BestSellorListViewItm extends StatelessWidget {
   const BestSellorListViewItm(
-      {super.key, required this.image, required this.title, required this.rowling, required this.pre});
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.authorName,
+      required this.pre, required this.book});
   final String image;
   final String title;
-final String rowling;
-final String pre;
+  final String authorName;
+  final String pre;
+final  List<BookEntity>book;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: InkWell(
         onTap: () {
-          navigateTo(context, const BookDetailsView());
+          navigateTo(
+              context,
+              BookDetailsView(
+                image: image,
+                authorName: authorName,
+                title: title,
+                pre: pre, book:book ,
+              ));
         },
         child: SizedBox(
           height: 110,
@@ -54,8 +67,9 @@ final String pre;
                     const SizedBox(
                       height: 3,
                     ),
-                     Text(
-                      rowling,
+                    Text(
+                      authorName,
+                       maxLines: 1,
                       style: Styles.textStyle14,
                     ),
                     const SizedBox(
@@ -64,7 +78,11 @@ final String pre;
                     Row(
                       children: [
                         Text(
-                      pre    ,
+                          pre,
+                          style: Styles.textStyle20,
+                        ),
+                        const Text(
+                          '€',
                           style: Styles.textStyle20,
                         ),
                         const Spacer(),

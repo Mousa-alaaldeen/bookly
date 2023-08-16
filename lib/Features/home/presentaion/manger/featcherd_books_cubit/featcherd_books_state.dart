@@ -18,3 +18,8 @@ class FeatureBooksError extends FeatureBooksState {
   final String error;
   FeatureBooksError(this.error);
 }
+
+class FeatureBooksPaginationFailure extends FeatureBooksState {
+  final String error;
+  FeatureBooksPaginationFailure(this.error);
+}

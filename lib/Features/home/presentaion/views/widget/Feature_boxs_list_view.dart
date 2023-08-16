@@ -65,7 +65,7 @@ class _FeatureBoxsListViewState extends State<FeatureBoxsListView> {
       child: ListView.separated(
         controller: _scrollController,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => CustomBookImageLoadingIndicator(
+        itemBuilder: (context, index) => CustomBookImage(
           image: widget.books[index].image,
         ),
         separatorBuilder: (BuildContext context, int index) => const SizedBox(

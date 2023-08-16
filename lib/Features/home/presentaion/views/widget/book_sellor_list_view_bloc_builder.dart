@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../../manger/featcherd_books_cubit/featcherd_books_cubit.dart';
 import '../../manger/featcherd_books_cubit/featcherd_books_state.dart';
 import 'best_selllor_list_view.dart';
+import 'bust_sellor_list_view_loding_indicator.dart';
 
 class BookSellorListViewBlocBuilder extends StatelessWidget {
   const BookSellorListViewBlocBuilder({
@@ -23,8 +24,9 @@ class BookSellorListViewBlocBuilder extends StatelessWidget {
         books.addAll(state.books);
       }
     }, builder: (context, state) {
-      if (state is FeatureBooksSuccess||state is FeatureBooksPaginationLoding) {
-        
+      if (state is FeatureBooksSuccess ||
+          state is FeatureBooksPaginationLoding ||
+          state is FeatureBooksPaginationFailure) {
         return BookSellorListView(
           books: books,
         );
@@ -34,7 +36,7 @@ class BookSellorListViewBlocBuilder extends StatelessWidget {
       } else {
         print('0000');
 
-        return const CircularProgressIndicator();
+        return const BustSellorListViewLogingIndicator();
       }
     });
   }

@@ -16,11 +16,15 @@ class FeatureBooksCubit extends Cubit<FeatureBooksState> {
     }
     var result = await featchFeatureBooksUseCase.call(pageNumber);
     result.fold(
-      (failure) => {
-        emit(FeatureBooksError(failure.massage)),
+      (failure) {
+        if (pageNumber == 0) {
+          emit(FeatureBooksError(failure.massage));
+        } else {
+          emit(FeatureBooksPaginationFailure(failure.massage));
+        }
       },
-      (books) => {
-        emit(FeatureBooksSuccess(books)),
+      (books) {
+        emit(FeatureBooksSuccess(books));
       },
     );
   }

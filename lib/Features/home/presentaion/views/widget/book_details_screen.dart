@@ -5,9 +5,17 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/utils/styles.dart';
 
-
 class BookDetailsScreen extends StatelessWidget {
-  const BookDetailsScreen({super.key});
+  const BookDetailsScreen(
+      {super.key,
+      required this.image,
+      required this.authorName,
+      required this.title,
+      required this.pre});
+  final String image;
+  final String authorName;
+  final String title;
+  final String pre;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +24,15 @@ class BookDetailsScreen extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: w * .2),
-          child:  const CustomBookImageLoadingIndicator(image: ''),
+          child: CustomBookImage(
+            image: image.toString(),
+          ),
         ),
         const SizedBox(
           height: 42,
         ),
-        const Text(
-          'The Jungle Book',
+        Text(
+          title,
           style: Styles.textStyle30,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
@@ -33,7 +43,7 @@ class BookDetailsScreen extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            'Rudyard Kipling',
+            authorName,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: Styles.textStyle14.copyWith(
@@ -51,7 +61,7 @@ class BookDetailsScreen extends StatelessWidget {
         const SizedBox(
           height: 37,
         ),
-        const BooksAction(),
+        BooksAction(pro: pre,),
       ],
     );
   }
